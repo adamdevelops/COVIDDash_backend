@@ -4,7 +4,8 @@
   "description": "Backend for Covid Dash app",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run devStart
   },
   "author": "",
   "license": "ISC",
