@@ -1,0 +1,22 @@
+{
+  "name": "coviddash_backend",
+  "version": "1.0.0",
+  "description": "Backend for Covid Dash app",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2",
+    "newsapi": "^2.4.1",
+    "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
