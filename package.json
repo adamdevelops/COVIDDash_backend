@@ -2,11 +2,10 @@
   "name": "coviddash_backend",
   "version": "1.0.0",
   "description": "Backend for Covid Dash app",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run start"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
