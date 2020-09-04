@@ -12,4 +12,4 @@ app.get('/', async(req, res) => {
 const tweetsRouter = require('./routes/tweets')
 app.use('/tweets', tweetsRouter)
 
-app.listen(8000, () => console.log('Server started'))
+app.listen(process.env.PORT || 5000, () => console.log('Server started'))
