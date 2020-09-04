@@ -5,7 +5,11 @@ const app = express()
 
 app.use(express.json())
 
+app.get('/', async(req, res) => {
+  res.send('Server Success')
+})
+
 const tweetsRouter = require('./routes/tweets')
 app.use('/tweets', tweetsRouter)
 
-app.listen(6000, () => console.log('Server started'))
+app.listen(8000, () => console.log('Server started'))
