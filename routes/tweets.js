@@ -12,8 +12,8 @@ var T = new Twit({
 })
 
 router.get('/', async(req, res) => {
-    T.get('statuses/user_timeline', {q:'COVID-19', screen_name: 'CNN', in_reply_to_status_id: null, exclude_replies:true, include_rts:false, count: 10 }, function(err, data, response) {
-    console.log(data)
+    T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 }, function(err, data, response) {
+    console.log(data.statuses)
   })
 
   res.send('Tweet Success')
