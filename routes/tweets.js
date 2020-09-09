@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Twit = require('twit')
 
-var T = new Twit({
+const T = new Twit({
   consumer_key:         process.env.TWITTER_CONSUMER_KEY,
   consumer_secret:      process.env.TWITTER_CONSUMER_SECRET,
   access_token:         process.env.TWITTER_ACCESS_TOKEN,
@@ -12,7 +12,7 @@ var T = new Twit({
 })
 
 router.get('/', async(req, res) => {
-    T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 }, function(err, data, response) {
+    var tweets = T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 }, function(err, data, response) {
     console.log(data.statuses)
   })
 
