@@ -12,11 +12,12 @@ const T = new Twit({
 })
 
 router.get('/', async(req, res) => {
-    var tweets = T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 }, function(err, data, response) {
+    const tweets = await T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 }, function(err, data, response) {
     console.log(data.statuses)
   })
-
-  res.send('Tweet Success')
+  console.log('Tweets')
+  console.log(tweets)
+  res.json(tweets.data)
 })
 
 module.exports = router
