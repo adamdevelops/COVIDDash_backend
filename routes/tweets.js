@@ -12,9 +12,26 @@ const T = new Twit({
 })
 
 router.get('/', async(req, res) => {
-  const tweets = await T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 5 })
-  console.log('Tweets')
-  console.log(tweets)
+  const t1 = {};
+
+  const tweets = await T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 1 })
+  .then(async (response) =>{
+      items = response.data
+      console.log('items')
+      // console.log(items.statuses)
+
+      t1['0'] = items.statuses
+
+      return items;
+  })
+  .catch(err =>{
+      console.log(err)
+  });
+  // console.log('Tweets')
+  // console.log(tweets)
+  //
+  console.log(t1);
+
   res.send(tweets.data)
 })
 
