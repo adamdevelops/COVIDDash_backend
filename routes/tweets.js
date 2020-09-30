@@ -12,7 +12,7 @@ const T = new Twit({
 })
 
 router.get('/', async(req, res) => {
-  const t1 = {};
+  const t1 = {data: []};
 
   const tweets = await T.get('search/tweets', {q:'Covid-19 AND -filter:retweets AND -filter:replies', from: 'CNN', in_reply_to_status_id: null, count: 1 })
   .then(async (response) =>{
@@ -20,7 +20,7 @@ router.get('/', async(req, res) => {
       console.log('items')
       // console.log(items.statuses)
 
-      t1['0'] = items.statuses
+      t1.data.push(items.statuses);
 
       return items;
   })
@@ -30,9 +30,9 @@ router.get('/', async(req, res) => {
   // console.log('Tweets')
   // console.log(tweets)
   //
-  console.log(t1);
+  console.log(t1.data);
 
-  res.send(tweets.data)
+  res.send(t1.data)
 })
 
 module.exports = router
